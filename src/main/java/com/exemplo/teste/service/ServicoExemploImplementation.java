@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 public class ServicoExemploImplementation implements ServicoExemplo {
 
 	public String retornaOk() {
-		return "Ok";
+		return "Ok!";
 	}
 
 	public boolean validaEntrada(int numero) {
