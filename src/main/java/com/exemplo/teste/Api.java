@@ -17,16 +17,16 @@ public class Api {
 
 	@PostMapping("/mensagemOk")
 	public ResponseEntity<String> retornarOk() {
-		return new ResponseEntity<String>(servicoExemplo.retornaOk(), HttpStatus.OK);
+		return new ResponseEntity<>(servicoExemplo.retornaOk(), HttpStatus.OK);
 	}
 
 	@PostMapping("/validaEntrada")
 	public ResponseEntity<String> validaEntrada(int numero) {
 		boolean validacao = servicoExemplo.validaEntrada(numero);
 		if (validacao) {
-			return new ResponseEntity<String>("Válido", HttpStatus.OK);
+			return new ResponseEntity<>("Válido", HttpStatus.OK);
 		} else {
-			return new ResponseEntity<String>("Inválido", HttpStatus.NOT_ACCEPTABLE);
+			return new ResponseEntity<>("Inválido", HttpStatus.NOT_ACCEPTABLE);
 		}
 	}
 

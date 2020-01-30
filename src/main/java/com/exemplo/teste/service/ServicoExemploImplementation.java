@@ -10,10 +10,7 @@ public class ServicoExemploImplementation implements ServicoExemplo {
 	}
 
 	public boolean validaEntrada(int numero) {
-		if (numero % 2 == 0) {
-			return true;
-		} else {
-			return false;
-		}
+
+		return numero % 2 == 0;
 	}
 }
