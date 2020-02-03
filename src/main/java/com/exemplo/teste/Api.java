@@ -1,5 +1,7 @@
 package com.exemplo.teste;
 
+import java.util.HashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,18 +18,25 @@ public class Api {
 	private ServicoExemplo servicoExemplo;
 
 	@PostMapping("/mensagemOk")
-	public ResponseEntity<String> retornarOk() {
-		return new ResponseEntity<>(servicoExemplo.retornaOk(), HttpStatus.OK);
+	public ResponseEntity<HashMap<String,String>> retornarOk() {
+		HashMap<String, String> map = new HashMap<>();
+		map.put("retorno", servicoExemplo.retornaOk());
+		return new ResponseEntity<>(map, HttpStatus.OK);
 	}
 
 	@PostMapping("/validaEntrada")
-	public ResponseEntity<String> validaEntrada(int numero) {
+	public ResponseEntity<HashMap<String, String>> validaEntrada(int numero) {
 		boolean validacao = servicoExemplo.validaEntrada(numero);
+		HashMap<String, String> map = new HashMap<>();
 		if (validacao) {
-			return new ResponseEntity<>("Válido", HttpStatus.OK);
+			map.put("retorno", "Válido");
+			return new ResponseEntity<>(map, HttpStatus.OK);
 		} else {
-			return new ResponseEntity<>("Inválido", HttpStatus.NOT_ACCEPTABLE);
+			map.put("retorno", "Inválido");
+			return new ResponseEntity<>(map, HttpStatus.NOT_ACCEPTABLE);
 		}
+		
+		
 	}
 
 }
