@@ -21,6 +21,7 @@ public class Api {
 	public ResponseEntity<HashMap<String,String>> retornarOk() {
 		HashMap<String, String> map = new HashMap<>();
 		map.put("retorno", servicoExemplo.retornaOk());
+		//teste
 		return new ResponseEntity<>(map, HttpStatus.OK);
 	}
 
