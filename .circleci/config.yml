@@ -31,6 +31,15 @@ jobs:
             - v1-dependencies-
 
       - run: mvn dependency:go-offline
+      
+      - run: |
+          name: docker
+          command: 
+          docker system prune -f
+          docker login -u "ggermano2" -p  "Teste1234" docker.io
+          docker build -t ggermano2/springbootapisimples:latest .
+          FOR /f "tokens=*" %%i IN ('docker ps -q') DO docker stop %%i
+          docker run -d -p8082:8082 ggermano2/springbootapisimples:latest 
 
       - save_cache:
           paths:
