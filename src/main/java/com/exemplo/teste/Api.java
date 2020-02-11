@@ -22,7 +22,6 @@ public class Api {
 		HashMap<String, String> map = new HashMap<>();
 		map.put("retorno", servicoExemplo.retornaOk());
 		return new ResponseEntity<>(map, HttpStatus.OK);
-		//teste
 	}
 
 	@PostMapping("/validaEntrada")
